@@ -17,12 +17,6 @@ void DrawQuad(int x1, int x2, int y1, int y2){
 //Desenha na tela
 void Desenha(void){
     glClear(GL_COLOR_BUFFER_BIT); //Limpa a tela
-    glMatrixMode(GL_PROJECTION); //Previne a modifica��o de tamanho da matriz ao redimensionar a tela
-    glLoadIdentity(); //Substitui a matriz atual pela matriz identidade
-    gluOrtho2D(0,65,24,0); //Plano cartesiano
-
-    glMatrixMode(GL_MODELVIEW); //Previne a modifica��o de tamanho do desenho ao redimensionar a tela
-    glLoadIdentity(); //Substitui a matriz atual pela matriz identidade
 
     glBegin(GL_QUADS); //Inicia o desenho do fundo
         glColor3f(0.4f, 0.6f, 0.9f); //C�u
@@ -388,6 +382,10 @@ void init(){
     glutKeyboardFunc(Teclado); //
     //Fun��o que controla quando uma tecla for pressionada
     glutKeyboardUpFunc(TecladoUp); //Fun��o que controla quando uma tecla n�o estiver pressionada
+    glMatrixMode(GL_PROJECTION); //Previne a modifica��o de tamanho da matriz ao redimensionar a tela
+    glLoadIdentity(); //Substitui a matriz atual pela matriz identidade
+    gluOrtho2D(0,65,24,0); //Plano cartesiano
+
     glClearColor(0.2f,0.6f,0.9f,1.0f); //Cor de fundo inicial da tela (RGBA)
 }
 

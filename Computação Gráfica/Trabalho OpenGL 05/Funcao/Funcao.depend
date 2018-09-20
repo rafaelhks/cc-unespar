@@ -21,7 +21,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1537107723 c:\mingw\include\gl\glut.h
+1537406938 c:\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -359,4 +359,19 @@
 1512594601 c:\mingw\include\nspapi.h
 	"_winsock.h"
 	"wtypes.h"
+
+1535976154 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\funcao\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	"Pixel.h"
+
+1535929382 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\funcao\include\pixel.h
+
+1535929362 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\funcao\src\pixel.cpp
+	"Pixel.h"
+	<math.h>
 

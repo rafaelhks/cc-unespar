@@ -1,26 +1,33 @@
 #ifndef POLIGONO_H
 #define POLIGONO_H
 #include <vector>
+#include <iostream>
+#include <math.h>
+#include "Pixel.h"
 using namespace std;
-
-struct ponto{
-    double x, y;
-};
 
 class Poligono
 {
     public:
         Poligono();
-        ponto centro;
-        int nPontos;
-        ponto nucleo;
-        vector<ponto> pontos;
-        void Translate(char dir);
-        void Scale(char op);
-        void Rotate(char op);
-        int Area();
-        ponto Centro();
+        void add(Pixel* p);
+        void del(int pos);
+        void angle(int a);
+        void centro(Pixel* p);
+        int angle();
+        int total();
+        Pixel* nucleo();
+        Pixel* get(int pos);
+        Pixel* centro();
+        void nucleo(Pixel* p);
         virtual ~Poligono();
+
+    private:
+        Pixel* p_centro;
+        int nPontos;
+        vector<Pixel*> pontos;
+        Pixel* p_nucleo;
+        int angulo;
 };
 
 #endif // POLIGONO_H

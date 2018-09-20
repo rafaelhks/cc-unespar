@@ -20,7 +20,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1141763866 c:\mingw\include\gl\glut.h
+1537406938 c:\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -328,11 +328,49 @@
 1505343413 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 04\teardropflores\include\poligono.h
 	<vector>
 
-1507222636 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\src\poligono.cpp
+1537134844 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\src\poligono.cpp
 	"Poligono.h"
+
+1537134811 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\include\poligono.h
+	<vector>
 	<iostream>
 	<math.h>
+	"Pixel.h"
 
-1507222660 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\include\poligono.h
+1537218188 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\src\pixel.cpp
+	"Pixel.h"
+	<math.h>
+
+1537218214 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\include\pixel.h
+
+1537220307 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
 	<vector>
+	"Poligono.h"
+
+1537218188 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardropflores\src\pixel.cpp
+	"Pixel.h"
+	<math.h>
+
+1537218214 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardropflores\include\pixel.h
+
+1537454154 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardropflores\src\poligono.cpp
+	"Poligono.h"
+
+1537454099 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardropflores\include\poligono.h
+	<vector>
+	<iostream>
+	<math.h>
+	"Pixel.h"
+
+1537455716 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardropflores\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	"Poligono.h"
 

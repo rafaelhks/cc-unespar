@@ -21,7 +21,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1141763866 c:\mingw\include\gl\glut.h
+1537406938 c:\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -337,4 +337,26 @@
 	<vector>
 	<fstream>
 	"Poligono.h"
+
+1537456314 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\texturadino\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	"Poligono.h"
+
+1537470167 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\texturadino\include\poligono.h
+	"Pixel.h"
+	<vector>
+
+1537470146 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\texturadino\src\poligono.cpp
+	"Poligono.h"
+
+1537470190 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\texturadino\src\pixel.cpp
+	"Pixel.h"
+	<math.h>
+
+1537470200 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\texturadino\include\pixel.h
 

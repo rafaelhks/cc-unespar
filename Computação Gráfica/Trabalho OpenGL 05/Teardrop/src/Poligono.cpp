@@ -19,10 +19,15 @@ void Poligono::angle(int a){
 
 void Poligono::del(int pos){
     this->pontos.erase(this->pontos.begin()+pos);
+    this->nPontos--;
 }
 
 void Poligono::nucleo(Pixel* p){
     this->p_nucleo = p;
+}
+
+void Poligono::centro(Pixel* p){
+    this->p_centro = p;
 }
 
 int Poligono::angle(){
@@ -39,4 +44,8 @@ Pixel* Poligono::nucleo(){
 
 Pixel* Poligono::get(int pos){
     return this->pontos.at(pos);
+}
+
+Pixel* Poligono::centro(){
+    return this->p_centro;
 }

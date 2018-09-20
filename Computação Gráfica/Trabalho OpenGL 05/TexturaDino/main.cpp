@@ -12,65 +12,65 @@ using namespace std;
 //Autor: Rafael Francisco Ferreira
 //Computação Gráfica - Ciência da Computação - Unespar Apucarana
 
-vector<Poligono> polis;
-ponto vp;
+vector<Poligono*> polis;
+Pixel* vp = new Pixel();
 
 void DrawLines(void){
-    glMatrixMode(GL_MODELVIEW);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    vp.y = 0;
-    for(int i=0; i<=30; i++){ //Linhas da matriz de dinos
-        vp.x = 0;
-        for(int j=0; j<=30; j++){ //Colunas da matriz de dino
-            glViewport(vp.x, vp.y, 180, 100);
+    int h = glutGet(GLUT_WINDOW_HEIGHT);
+    int w = glutGet(GLUT_WINDOW_WIDTH);
+
+    vp->setY(0);
+    for(int i=0; i<=(h/100)+3; i++){ //Linhas da matriz de dinos
+        vp->setX(0);
+        for(int j=0; j<=(w/180)+2; j++){ //Colunas da matriz de dino
+            glViewport(vp->getX(), vp->getY(), 180, 100);
             for(int k=0; k<polis.size(); k++){ //Percorre o vector de Poligonos
-                Poligono td = polis.at(k);
+                Poligono* td = polis.at(k);
                 glBegin(GL_LINE_STRIP);
                     glColor3f(0,0,0);
-                    for(int l=0; l<td.pontos.size(); l++){ //Percorre o vector de pontos de cada Poligono
+                    for(int l=0; l<td->total(); l++){ //Percorre o vector de pontos de cada Poligono
                         if(i%2==0){
-                            glVertex2i(td.pontos.at(l).x, td.pontos.at(l).y); //Desenha o dino
+                            glVertex2i(td->get(l)->getX(), td->get(l)->getY()); //Desenha o dino
                         }else{
-                            glVertex2i(W-td.pontos.at(l).x-80, H-td.pontos.at(l).y); //Desenha o dino invertido
+                            glVertex2i(W-td->get(l)->getX()-80, H-td->get(l)->getY()); //Desenha o dino invertido
                         }
                     }
                 glEnd();
             }
-            vp.x+=150; //Incrementa o x da viewPort
+            vp->setX(vp->getX()+150); //Incrementa o x da viewPort
         }
         if(i%2==0){ //Incrementa o y da viewPort (a cada duas linhas o incremento é maior)
-            vp.y+=20;
+            vp->setY(vp->getY()+20);
         }else{
-            vp.y+=120;
+            vp->setY(vp->getY()+120);
         }
     }
     glFlush();
 }
 
 void abreArquivo(){
-    int nPolis;
-    ponto p;
+    int nPontos, nPolis;
 
     ifstream arquivo;
     arquivo.open("dino.dat"); //Abre o dino.dat
 
     if(arquivo.is_open()){ //Checa se arquivo está aberto
         arquivo>>nPolis; //Recebe a quantidade de núcleos
-        cout<<nPolis<<endl;
-        for(int i=0; i<nPolis; i++){
-            Poligono n;
-            arquivo>>n.nPontos; //Recebe a quantidade de linhas por nucleo
-            cout<<n.nPontos<<endl;
-            for(int j=0; j<n.nPontos; j++){
-                arquivo>>p.x>>p.y; //Ponto x>>y
-                n.pontos.push_back(p); //Adiciona o ponto ao vector
-                cout<<p.x<<" "<<p.y<<endl;
+        //cout<<nPolis<<endl;
+        for(int i=0; i<nPolis; i++){ //Percorre os núcleos
+            Poligono* dino = new Poligono();
+            arquivo>>nPontos; //Recebe a quantidade de linhas por nucleo
+            //cout<<nPontos<<endl;
+            for(int j=0; j<nPontos; j++){
+                int x, y;
+                arquivo>>x>>y; //Ponto x>>y
+                dino->add(new Pixel(x,y)); //Adiciona o ponto ao vector
+                //cout<<x<<" "<<y<<endl;
             }
-            polis.push_back(n);
+            polis.push_back(dino);
         }
-    }else{
-        cout<<"Falha ao abrir o arquivo!";
     }
     arquivo.close(); //Fecha o arquivo
     DrawLines();
@@ -86,6 +86,7 @@ void init(){
     glutCreateWindow("Computação Gráfica - OpenGL - Trab 05/4"); //Cria a janela
     glutDisplayFunc(DrawLines); //Função que é chamada toda vez que houver uma iteração na tela
     glutReshapeFunc(myReshape);
+    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluOrtho2D(0, W, 0, H);
     glClearColor(1.0f,1.0f,1.0f,1.0f); //Cor de fundo inicial da tela (RGBA)

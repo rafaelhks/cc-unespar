@@ -20,7 +20,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1537107723 c:\mingw\include\gl\glut.h
+1537406938 c:\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -372,4 +372,25 @@
 1537117381 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardrop\src\pixel.cpp
 	"Pixel.h"
 	<math.h>
+
+1537117381 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardrop\src\pixel.cpp
+	"Pixel.h"
+	<math.h>
+
+1537117429 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardrop\include\pixel.h
+
+1537454532 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardrop\src\poligono.cpp
+	"Poligono.h"
+
+1537454578 c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardrop\include\poligono.h
+	"Pixel.h"
+	<vector>
+
+1537470030 source:c:\users\rafael\desktop\computação gráfica\trabalho opengl 05\teardrop\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	"Poligono.h"
 

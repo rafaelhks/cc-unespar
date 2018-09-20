@@ -5,8 +5,8 @@
 #include <vector>
 #include "Poligono.h"
 #define PI 3.14159265359
-#define W 640
-#define H 480
+#define W 1080
+#define H 720
 using namespace std;
 
 //Autor: Rafael Francisco Ferreira
@@ -30,39 +30,46 @@ void DrawLines(void){
     cout<<"Clique em algum lugar para desenhar um TearDrop"<<endl;
 }
 
-void TearDrop(int x, int y){
-    int r = 50, altura = 150, npontos = 180;
-    double angulo = 6;
+double DegreeToRad(double d){
+    return (d*PI)/180;
+}
+
+void TearDrop(int x, int y, int h, int w, int inc){
+    int r = w, altura = h;
 
     Poligono* td = new Poligono(); //TearDrop
     Pixel* nucleo = new Pixel(x, y);
     td->nucleo(nucleo);
 
-    Pixel* centro = new Pixel(x, y+altura); //Centro do semicirculo
+    double cX = x+h*cos(DegreeToRad(inc));
+    double cY = y+h*sin(DegreeToRad(inc));
+    td->centro(new Pixel(cX, cY)); //Centro do semicirculo
 
-    for(int i = 0; i<npontos; i++){ //Cria os pontos do semi circulo
-        Pixel* p = new Pixel(); //Um ponto do circulo
-        p->setX(centro->getX()+r*cos(angulo));
-        p->setY(centro->getY()+r*sin(angulo));
+    cout<<"Inclinação: "<<inc<<endl;
+
+    for(int i = -110+inc; i<110+inc; i++){ //Cria os pontos do semi circulo
+        double pX, pY;
+        pX = cX+r*cos(DegreeToRad(i));
+        pY = cY+r*sin(DegreeToRad(i));
         //cout<<p->getX()<<" "<<p->getY()<<endl;
-        td->add(p);
-        angulo+=PI/145;
+        td->add(new Pixel(pX,pY));
     }
 
     polis.push_back(td);
-    DrawLines();
 }
 
 void Mouse(int bt, int state, int x, int y){
     if(bt == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
         polis.clear();
-        TearDrop(x, y);
+        int h = 250, r = h/3, angulo = -65;
+        TearDrop(x, y, h, r, angulo);
+        DrawLines();
     }
 }
 
 void init(){
     glutInitWindowSize(W, H); //Define o tamanho da tela
-    glutInitWindowPosition(300,100); //Posicionamento da janela na tela
+    glutInitWindowPosition(0,0); //Posicionamento da janela na tela
     glutCreateWindow("Computação Gráfica - OpenGL - Trab 04/1"); //Cria a janela
     glutDisplayFunc(DrawLines); //Função que é chamada toda vez que houver uma iteração na tela
     glutMouseFunc(Mouse);

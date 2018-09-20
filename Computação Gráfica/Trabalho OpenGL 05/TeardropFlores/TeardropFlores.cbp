@@ -44,8 +44,10 @@
 			<Add library="gdi32" />
 			<Add directory="C:/MinGW/lib" />
 		</Linker>
+		<Unit filename="include/Pixel.h" />
 		<Unit filename="include/Poligono.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Pixel.cpp" />
 		<Unit filename="src/Poligono.cpp" />
 		<Extensions>
 			<code_completion />

@@ -20,7 +20,7 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1141763866 c:\mingw\include\gl\glut.h
+1537107723 c:\mingw\include\gl\glut.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
@@ -328,10 +328,9 @@
 1505343413 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 04\teardropflores\include\poligono.h
 	<vector>
 
-1507220209 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores2\main.cpp
-	<gl/gl.h>
-	<gl/glu.h>
-	<gl/glut.h>
+1535599714 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores2\main.cpp
+	<windows.h>
+	<GL/glut.h>
 	<iostream>
 	<math.h>
 	<vector>
@@ -340,6 +339,7 @@
 1505343413 d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores2\include\poligono.h
 	<vector>
 
-1505251610 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores2\src\poligono.cpp
+1535599685 source:d:\mega\megasync\faculdade\3º ano\computação gráfica\trabalho opengl 05\teardropflores2\src\poligono.cpp
 	"Poligono.h"
+	<vector>
 

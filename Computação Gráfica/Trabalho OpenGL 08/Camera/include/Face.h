@@ -1,3 +1,5 @@
+#ifndef FACE_H
+#define FACE_H
 #include "Vertex3D.h"
 #include<vector>
 
@@ -8,14 +10,13 @@ class Face
     public:
         Face();
         virtual ~Face();
-        void Add(Vertex3D* vertex);
-        void RemoveAt(int pos);
+        void Add(int pos);
         void clearAll();
-        Vertex3D* get(int pos);
         int total();
+        int get(int pos);
 
     private:
-        vector<Vertex3D*> vertices;
+        vector<int> vertices;
         int nVertex;
 };
 

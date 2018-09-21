@@ -12,13 +12,19 @@ class Mesh
         void Rotate(char eixo, char op);
         void Centro();
         void addFace(Face* face);
+        void addVertex(double x, double y, double z);
+        int totalVertices();
         Face* getFace(int pos);
+        Vertex3D* getVertex(int pos);
         void setFaces(vector<Face*> faces);
         int faceTotal();
+        Vertex3D* getCentro();
 
     private:
         int nVertices;
         int nFaces;
         Vertex3D* centro;
+        vector<Vertex3D*> vertices;
         vector<Face*> faces;
 };
+

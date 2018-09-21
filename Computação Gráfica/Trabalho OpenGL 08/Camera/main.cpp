@@ -7,7 +7,7 @@
 #include <vector>
 #include "Mesh.h"
 #include "Camera.h"
-#include "Point3.h"
+#include "Vertex3D.h"
 #define W 640
 #define H 480
 #define PI 3.14159265
@@ -17,38 +17,32 @@ using namespace std;
 //Computação Gráfica - Ciência da Computação - Unespar Apucarana
 
 char sentidoRotacao = 'h';
-Mesh pl;
-Camera *cam = new Camera();
-Point3 eye, look;
-Vector3 up;
+Mesh* mesh = new Mesh();
+Camera* cam = new Camera();
 
 //Função criada para desenhar linhas
 void DrawLines(void){
     glClear(GL_COLOR_BUFFER_BIT); //Limpa a tela
-    for(int i=0; i<pl.faces.size(); i++){ //Percorre o vector de faces
-        face f = pl.faces.at(i); //face
+    for(int i=0; i<mesh->faceTotal(); i++){
+        Face* f = mesh->getFace(i);
         glBegin(GL_LINE_LOOP);
             glColor3f(0,1,0);
-            for(int j=0; j<f.vertices.size(); j++){ //percorre os vertices da face
-                //Pega os vertives correspondentes à face do vector de vertices da Mesh
-                    glVertex3d(pl.vertices.at(f.vertices.at(j)).x,
-                               pl.vertices.at(f.vertices.at(j)).y,
-                               pl.vertices.at(f.vertices.at(j)).z);
+            for(int j=0; j<f->total(); j++){
+                glVertex3d(mesh->getVertex(f->get(j))->getX(),
+                           mesh->getVertex(f->get(j))->getY(),
+                           mesh->getVertex(f->get(j))->getZ());
             }
         glEnd();
     }
-    //cout<<pl.centro.x<<" "<<pl.centro.y<<" "<<pl.centro.z<<endl ;
     glFlush();
-    glutPostRedisplay();
 }
 
 void abreArquivo(){
-    vertice v;
-    face f;
-    string charInutil, aux, nomeArquivo = "Cat.obj";
+    string charInutil, aux, nomeArquivo = "dodge_viper.obj";
+    string fname = "OBJfiles/"+nomeArquivo;
 
     ifstream arquivo;
-    arquivo.open("OBJfiles/"+nomeArquivo); //Abre arquivo salvo
+    arquivo.open("OBJfiles\\dodge_viper.obj"); //Abre arquivo salvo
 
     if (arquivo.is_open()){ //Checa se arquivo está aberto
         cout<<"Arquivo "<<nomeArquivo<<" aberto com sucesso.\nObtendo dados..."<<endl;
@@ -57,9 +51,10 @@ void abreArquivo(){
         //vertices
         while(aux!="vt" && aux!="f"){
             if(aux=="v"){
-                arquivo>>v.x>>v.y>>v.z;
-                pl.vertices.push_back(v);
-                //cout<<"v "<<v.x<<" "<<v.y<<" "<<v.z<<endl;
+                double x, y, z;
+                arquivo>>x>>y>>z;
+                mesh->addVertex(x,y,z);
+                //cout<<"v "<<x<<" "<<y<<" "<<z<<endl;
             }else{
                 getline(arquivo, charInutil);
             }
@@ -70,10 +65,10 @@ void abreArquivo(){
         //vertices de textura
         while(aux!="f"){
             if(aux=="vt"){
-                arquivo>>v.x>>v.y;
-                v.z = 0.0;
-                pl.vertices.push_back(v);
-                //cout<<"vt "<<v.x<<" "<<v.y<<" "<<v.z<<endl;
+                double x, y, z;
+                arquivo>>x>>y;
+                mesh->addVertex(x,y,0.0);
+                //cout<<"vt "<<x<<" "<<y<<" "<<z<<endl;
             }else{
                 getline(arquivo, charInutil);
             }
@@ -84,32 +79,30 @@ void abreArquivo(){
         //faces
         while(!arquivo.eof()){
             if(aux=="f") {
+                Face* f = new Face();
                 //cout<<"f ";
                 arquivo>>aux;
-                aux = aux.substr(0, aux.find("/"));
-                f.vertices.push_back(stoi(aux)-1);
-                //cout<<aux<<" ";
-
-                arquivo>>aux;
-                aux = aux.substr(0, aux.find("/"));
-                f.vertices.push_back(stoi(aux)-1);
-                //cout<<aux<<" ";
-
-                arquivo>>aux;
-                aux = aux.substr(0, aux.find("/"));
-                f.vertices.push_back(stoi(aux)-1);
-                //cout<<aux<<" "<<endl;
-
-                pl.faces.push_back(f);
-                f.vertices.clear();
+                while(aux!="f" && !arquivo.eof()){
+                    aux = aux.substr(0, aux.find("/"));
+                    //cout<<stoi(aux)<<" ";
+                    f->Add(stoi(aux)-1);
+                    arquivo>>aux;
+                }
+                //cout<<endl;
+                mesh->addFace(f);
+                if(aux!="f"){
+                    arquivo>>aux;
+                }
             }else{
                 getline(arquivo, charInutil);
             }
-            arquivo>>aux;
+           // arquivo>>aux;
         }
         cout<<"Leitura das faces concluida..."<<endl;
     }
     arquivo.close(); //Fecha o arquivo
+
+    mesh->Centro();
     cout<<"Arquivo "<<nomeArquivo<<" fechado."<<endl;
 
     DrawLines();
@@ -128,27 +121,29 @@ void menu(){
 void Keyboard(unsigned char key, int x, int y){
     if(key=='h') sentidoRotacao = 'h';
     else if(key=='a') sentidoRotacao = 'a';
-    else if(key=='i') pl.Rotate('X', sentidoRotacao);
-    else if(key=='j') pl.Rotate('Y', sentidoRotacao);
-    else if(key=='k') pl.Rotate('Z', sentidoRotacao);
-    else if(key=='E') pl.Scale('+');
-    else if(key=='e') pl.Scale('-');
+    else if(key=='i') mesh->Rotate('X', sentidoRotacao);
+    else if(key=='j') mesh->Rotate('Y', sentidoRotacao);
+    else if(key=='k') mesh->Rotate('Z', sentidoRotacao);
+    else if(key=='E') mesh->Scale('+');
+    else if(key=='e') mesh->Scale('-');
     else if(key=='Z') cam->slide(0,0,10);
     else if(key=='z') cam->slide(0,0,-10);
-    else if(key=='P') cam->pitch(PI/6);
-    else if(key=='p') cam->pitch(-PI/6);
-    else if(key=='R') cam->roll(PI/6);
-    else if(key=='r') cam->roll(-PI/6);
-    else if(key=='Y') cam->yaw(PI/6);
-    else if(key=='y') cam->yaw(-PI/6);
+    else if(key=='P') cam->pitch(5);
+    else if(key=='p') cam->pitch(-5);
+    else if(key=='R') cam->roll(5);
+    else if(key=='r') cam->roll(-5);
+    else if(key=='Y') cam->yaw(5);
+    else if(key=='y') cam->yaw(-5);
     else cout<<"Comando invalido!"<<endl;
+    DrawLines();
 }
 
 void initCamera(){
-    pl.Centro();
-    eye.Set(0, 0, 200);
-    look.Set(pl.centro.x, pl.centro.y, pl.centro.z);
-    up.Set(0,look.y+1,0);
+    Vertex3D* eye = new Vertex3D(0,0,200);
+    Vertex3D* look = new Vertex3D(mesh->getCentro()->getX(),
+                                  mesh->getCentro()->getY(),
+                                  mesh->getCentro()->getZ());
+    Vertex3D* up = new Vertex3D(0, look->getY()+1, 0);
     cam->Set(eye, look, up);
     cam->setShape(90, 1, 1, 1000);
 }
@@ -166,7 +161,9 @@ void init(){
     gluPerspective(cam->viewAngle, cam->aspect, cam->nearDist, cam->farDist);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(cam->eye.x, cam->eye.y, cam->eye.z, look.x, look.y, look.z, up.x, up.y, up.z);
+    gluLookAt(cam->getEye()->getX(), cam->getEye()->getY(), cam->getEye()->getZ(),
+              cam->getLook()->getX(), cam->getLook()->getY(), cam->getLook()->getZ(),
+              cam->getUp()->getX(), cam->getUp()->getY(), cam->getUp()->getZ());
     //glOrtho(-320, 320, -240, 240, 0, 640);
     glutKeyboardFunc(Keyboard);
 }

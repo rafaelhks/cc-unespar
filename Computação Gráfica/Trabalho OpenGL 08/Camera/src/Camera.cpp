@@ -1,16 +1,31 @@
 #include <windows.h>
 #include "Camera.h"
 #include <GL/glut.h>
+#include <math.h>
 #define PI 3.14159265
 
-Camera::Camera()
+Camera::Camera(){}
+
+Camera::Camera(Vertex3D* Eye, Vertex3D* look, Vertex3D* up)
 {
-    //ctor
+    this->Set(Eye, look, up);
 }
 
 Camera::~Camera()
 {
     //dtor
+}
+
+Vertex3D* Camera::getEye(){
+    return this->eye;
+}
+
+Vertex3D* Camera::getLook(){
+    return this->look;
+}
+
+Vertex3D* Camera::getUp(){
+    return this->up;
 }
 
 void Camera::setShape(float vAngle, float asp, float nr, float fr){
@@ -26,55 +41,56 @@ void Camera::setShape(float vAngle, float asp, float nr, float fr){
 
 void Camera::setModelViewMatrix(){
     float m[16];
-    Vector3 eVec;
-    eVec.Set(eye.x, eye.y, eye.z); //vector version of eye
-    m[0] = u.x; m[4] = u.y; m[8] = u.z; m[12] = -eVec.dot(u);
-    m[1] = v.x; m[5] = v.y; m[9] = v.z; m[13] = -eVec.dot(v);
-    m[2] = n.x; m[6] = n.y; m[10] = n.z; m[14] = -eVec.dot(n);
+    Vertex3D* eVec = new Vertex3D(eye->getX(), eye->getY(), eye->getZ()); //vector version of eye
+    m[0] = u->getX(); m[4] = u->getY(); m[8] = u->getZ(); m[12] = -eVec->dot(u);
+    m[1] = v->getX(); m[5] = v->getY(); m[9] = v->getZ(); m[13] = -eVec->dot(v);
+    m[2] = n->getX(); m[6] = n->getY(); m[10] = n->getZ(); m[14] = -eVec->dot(n);
     m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1.0;
     glMatrixMode(GL_MODELVIEW);
     glLoadMatrixf(m);
 }
 
-void Camera::Set(Point3 Eye, Point3 look, Vector3 up){
-    eye.Set(Eye);
-    n.Set(eye.x-look.x, eye.y-look.y, eye.z-look.z); //n
-    u.Set(up.cross(n).x, up.cross(n).y, up.cross(n).z); //u = up X n
-    n.normalize(); u.normalize();
-    v.Set(n.cross(u).x, n.cross(u).y, n.cross(u).z); //v = n X u
-    setModelViewMatrix();
+void Camera::Set(Vertex3D* Eye, Vertex3D* Look, Vertex3D* Up){
+    this->eye = Eye;
+    this->look = Look;
+    this->up = Up;
+    this->n = new Vertex3D(eye->getX()-look->getX(), eye->getY()-look->getY(), eye->getZ()-look->getZ()); //n
+    this->u = new Vertex3D(up->cross(n)->getX(), up->cross(n)->getY(), up->cross(n)->getZ()); //u = up X n
+    n->normalize(); u->normalize();
+    this->v = new Vertex3D(n->cross(u)->getX(), n->cross(u)->getY(), n->cross(u)->getZ()); //v = n X u
+    //setModelViewMatrix();
 }
 //o quanto vai andar em u,v,n
 void Camera::slide(float deIU, float deIV, float deIN){
-    eye.x += deIU*u.x + deIV*v.x + deIN*n.x;
-    eye.y += deIU*u.y + deIV*v.y + deIN*n.y;
-    eye.z += deIU*u.z + deIV*v.z + deIN*n.z;
+    eye->setX(eye->getX() + (deIU*u->getX() + deIV*v->getX() + deIN*n->getX()));
+    eye->setY(eye->getY() + (deIU*u->getY() + deIV*v->getY() + deIN*n->getY()));
+    eye->setZ(eye->getZ() + (deIU*u->getZ() + deIV*v->getZ() + deIN*n->getZ()));
     setModelViewMatrix();
 }
 
 void Camera::roll(float angle){
-    float cs = cos(PI/180.0*angle);
-    float sn = sin(PI/180.0*angle);
-    Vector3 t = u;
-    u.Set(cs*t.x - sn*v.x, cs*t.y - sn*v.y, cs*t.z - sn*v.z);
-    v.Set(sn*t.x + cs*v.x, sn*t.y + cs*v.y, sn*t.z + cs*v.z);
+    float cs = cos((angle*PI)/180.0);
+    float sn = sin((angle*PI)/180.0);
+    Vertex3D* t = u;
+    u->setPosition(cs*t->getX() - sn*v->getX(), cs*t->getY() - sn*v->getY(), cs*t->getZ() - sn*v->getZ());
+    v->setPosition(sn*t->getX() + cs*v->getX(), sn*t->getY() + cs*v->getY(), sn*t->getZ() + cs*v->getZ());
     setModelViewMatrix();
 }
 
 void Camera::pitch(float angle){
-    float cs = cos(PI/180.0*angle);
-    float sn = sin(PI/180.0*angle);
-    Vector3 t = v;
-    v.Set(cs*t.x - sn*n.x, cs*t.y - sn*n.y, cs*t.z - sn*n.z);
-    n.Set(sn*t.x + cs*n.x, sn*t.y + cs*n.y, sn*t.z + cs*n.z);
+    float cs = cos((angle*PI)/180.0);
+    float sn = sin((angle*PI)/180.0);
+    Vertex3D* t = v;
+    v->setPosition(cs*t->getX() - sn*n->getX(), cs*t->getY() - sn*n->getY(), cs*t->getZ() - sn*n->getZ());
+    n->setPosition(sn*t->getX() + cs*n->getX(), sn*t->getY() + cs*n->getY(), sn*t->getZ() + cs*n->getZ());
     setModelViewMatrix();
 }
 
 void Camera::yaw(float angle){
-    float cs = cos(PI/180.0*angle);
-    float sn = sin(PI/180.0*angle);
-    Vector3 t = n;
-    n.Set(cs*t.x - sn*u.x, cs*t.y - sn*u.y, cs*t.z - sn*u.z);
-    u.Set(sn*t.x + cs*u.x, sn*t.y + cs*u.y, sn*t.z + cs*u.z);
+    float cs = cos((angle*PI)/180.0);
+    float sn = sin((angle*PI)/180.0);
+    Vertex3D* t = n;
+    n->setPosition(cs*t->getX() - sn*u->getX(), cs*t->getY() - sn*u->getY(), cs*t->getZ() - sn*u->getX());
+    u->setPosition(sn*t->getX() + cs*u->getX(), sn*t->getY() + cs*u->getY(), sn*t->getZ() + cs*u->getX());
     setModelViewMatrix();
 }

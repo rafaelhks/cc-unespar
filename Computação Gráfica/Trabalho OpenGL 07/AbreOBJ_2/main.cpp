@@ -22,13 +22,14 @@ Mesh* mesh = new Mesh();
 //Função criada para desenhar linhas
 void DrawLines(void){
     glClear(GL_COLOR_BUFFER_BIT); //Limpa a tela
-    for(int i=0; i<mesh->faceTotal(); i++){ //Percorre o vector de faces
-        Face* f = mesh->getFace(i); //face
+    for(int i=0; i<mesh->faceTotal(); i++){
+        Face* f = mesh->getFace(i);
         glBegin(GL_LINE_LOOP);
             glColor3f(0,1,0);
-            for(int j=0; j<f->total(); j++){ //percorre os vertices da face
-                //Pega os vertives correspondentes à face do vector de vertices da Mesh
-                glVertex3d(f->get(j)->getX(), f->get(j)->getY(), f->get(j)->getZ());
+            for(int j=0; j<f->total(); j++){
+                glVertex3d(mesh->getVertex(f->get(j))->getX(),
+                           mesh->getVertex(f->get(j))->getY(),
+                           mesh->getVertex(f->get(j))->getZ());
             }
         glEnd();
     }
@@ -41,8 +42,6 @@ void abreArquivo(){
 
     ifstream arquivo;
     arquivo.open("OBJfiles\\dodge_viper.obj"); //Abre arquivo salvo
-    vector<Vertex3D*> vertices;
-    //vector<Face*> faces;
 
     if (arquivo.is_open()){ //Checa se arquivo está aberto
         cout<<"Arquivo "<<nomeArquivo<<" aberto com sucesso.\nObtendo dados..."<<endl;
@@ -53,7 +52,7 @@ void abreArquivo(){
             if(aux=="v"){
                 double x, y, z;
                 arquivo>>x>>y>>z;
-                vertices.push_back(new Vertex3D(x,y,z));
+                mesh->addVertex(x,y,z);
                 //cout<<"v "<<x<<" "<<y<<" "<<z<<endl;
             }else{
                 getline(arquivo, charInutil);
@@ -67,7 +66,7 @@ void abreArquivo(){
             if(aux=="vt"){
                 double x, y, z;
                 arquivo>>x>>y;
-                vertices.push_back(new Vertex3D(x,y,0.0));
+                mesh->addVertex(x,y,0.0);
                 //cout<<"vt "<<x<<" "<<y<<" "<<z<<endl;
             }else{
                 getline(arquivo, charInutil);
@@ -79,20 +78,24 @@ void abreArquivo(){
         //faces
         while(!arquivo.eof()){
             if(aux=="f") {
-                Face* f  = new Face();
+                Face* f = new Face();
                 //cout<<"f ";
                 arquivo>>aux;
                 while(aux!="f" && !arquivo.eof()){
                     aux = aux.substr(0, aux.find("/"));
-                    f->Add(vertices.at(stoi(aux)-1));
-                    //cout<<aux<<" ";
+                    //cout<<stoi(aux)<<" ";
+                    f->Add(stoi(aux)-1);
                     arquivo>>aux;
                 }
+                //cout<<endl;
                 mesh->addFace(f);
-                if(aux!="f") arquivo>>aux;
+                if(aux!="f"){
+                    arquivo>>aux;
+                }
             }else{
                 getline(arquivo, charInutil);
             }
+           // arquivo>>aux;
         }
         cout<<"Leitura das faces concluida..."<<endl;
     }

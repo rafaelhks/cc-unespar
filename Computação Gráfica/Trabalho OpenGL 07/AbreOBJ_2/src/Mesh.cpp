@@ -13,6 +13,15 @@ Mesh::Mesh()
 
 Mesh::~Mesh(){}
 
+Vertex3D* Mesh::getVertex(int pos){
+    return this->vertices.at(pos);
+}
+
+void Mesh::addVertex(double x, double y, double z){
+    this->vertices.push_back(new Vertex3D(x, y, z));
+    this->nVertices++;
+}
+
 void Mesh::addFace(Face* f){
     this->faces.push_back(f);
     this->nFaces++;
@@ -26,26 +35,27 @@ void Mesh::setFaces(vector<Face*> faces){
     this->faces = faces;
 }
 
+int Mesh::totalVertices(){
+    return this->nVertices;
+}
+
 int Mesh::faceTotal(){
     return this->nFaces;
 }
 
 void Mesh::Centro(){
     cout<<"CMI: "<<centro->getX()<<", "<<centro->getY()<<", "<<centro->getZ()<<endl;
-    double maiorX=this->faces.at(0)->get(0)->getX(), menorX = this->faces.at(0)->get(0)->getX(),
-           maiorY=this->faces.at(0)->get(0)->getY(), menorY = this->faces.at(0)->get(0)->getY(),
-           maiorZ=this->faces.at(0)->get(0)->getZ(), menorZ = this->faces.at(0)->get(0)->getZ();
+    double maiorX=this->vertices.at(0)->getX(), menorX = this->vertices.at(0)->getX(),
+           maiorY=this->vertices.at(0)->getY(), menorY = this->vertices.at(0)->getY(),
+           maiorZ=this->vertices.at(0)->getZ(), menorZ = this->vertices.at(0)->getZ();
 
-    for(int i=0; i<this->faces.size(); i++){
-        Face* f = this->faces.at(i);
-        for(int j=0; j<f->total(); j++){
-            if(f->get(j)->getX()>maiorX) maiorX = f->get(j)->getX();
-            if(f->get(j)->getX()<menorX) menorX = f->get(j)->getX();
-            if(f->get(j)->getY()>maiorY) maiorY = f->get(j)->getY();
-            if(f->get(j)->getY()<menorY) menorY = f->get(j)->getY();
-            if(f->get(j)->getZ()>maiorZ) maiorZ = f->get(j)->getZ();
-            if(f->get(j)->getZ()<menorZ) menorZ = f->get(j)->getZ();
-        }
+    for(int j=0; j<this->nVertices; j++){
+        if(vertices.at(j)->getX()>maiorX) maiorX = vertices.at(j)->getX();
+        if(vertices.at(j)->getX()<menorX) menorX = vertices.at(j)->getX();
+        if(vertices.at(j)->getY()>maiorY) maiorY = vertices.at(j)->getY();
+        if(vertices.at(j)->getY()<menorY) menorY = vertices.at(j)->getY();
+        if(vertices.at(j)->getZ()>maiorZ) maiorZ = vertices.at(j)->getZ();
+        if(vertices.at(j)->getZ()<menorZ) menorZ = vertices.at(j)->getZ();
     }
     this->centro->setX((maiorX+menorX)/2.0);
     this->centro->setY((maiorY+menorY)/2.0);
@@ -55,13 +65,11 @@ void Mesh::Centro(){
 
 void Mesh::Scale(char op){
     this->Centro(); //Calcula o centro de massa
-    for(int i=0; i<this->faces.size(); i++){
-        Face* f = this->faces.at(i);
-        for(int j=0; j<f->total(); j++){
-            //cout<<"Original: "<<f->get(j)->getX()<<", "<<f->get(j)->getY()<<", "<<f->get(j)->getZ()<<endl;
-            double x = f->get(j)->getX() - this->centro->getX();
-            double y = f->get(j)->getY() - this->centro->getY();
-            double z = f->get(j)->getZ() - this->centro->getZ();
+        for(int j=0; j<this->nVertices; j++){
+            //cout<<"Original: "<<vertices.at(j)->getX()<<", "<<vertices.at(j)->getY()<<", "<<vertices.at(j)->getZ()<<endl;
+            double x = vertices.at(j)->getX() - this->centro->getX();
+            double y = vertices.at(j)->getY() - this->centro->getY();
+            double z = vertices.at(j)->getZ() - this->centro->getZ();
 
             if(op=='+'){ //Aumenta Escala
                 x *= 1.1;
@@ -73,21 +81,18 @@ void Mesh::Scale(char op){
                 y /= 1.1;
                 z /= 1.1;
             }
-            f->get(j)->setPosition(x+this->centro->getX(), y+this->centro->getY(), z+this->centro->getZ());
-            //cout<<"New: "<<f->get(j)->getX()<<", "<<f->get(j)->getY()<<", "<<f->get(j)->getZ()<<endl;
+            vertices.at(j)->setPosition(x+this->centro->getX(), y+this->centro->getY(), z+this->centro->getZ());
+            //cout<<"New: "<<vertices.at(j)->getX()<<", "<<vertices.at(j)->getY()<<", "<<vertices.at(j)->getZ()<<endl;
         }
-    }
 }
 
 void Mesh::Rotate(char eixo, char op){
     double angulo = (1*PI)/180; //Angulo de inclinação EM RADIANOS
     this->Centro(); //Retorna o centro de massa do objeto
-    for(int i=0; i<this->nFaces; i++){
-        Face* f = this->faces.at(i);
-        for(int j=0; j<f->total(); j++){
-            double x = f->get(j)->getX() - centro->getX();
-            double y = f->get(j)->getY() - centro->getY();
-            double z = f->get(j)->getZ() - centro->getZ();
+        for(int j=0; j<this->nVertices; j++){
+            double x = vertices.at(j)->getX() - centro->getX();
+            double y = vertices.at(j)->getY() - centro->getY();
+            double z = vertices.at(j)->getZ() - centro->getZ();
             if(op=='h'){ //Sentido horário
                 if(eixo=='Z'){
                     x = x*cos(angulo)-y*sin(angulo);
@@ -116,7 +121,6 @@ void Mesh::Rotate(char eixo, char op){
                     z = z*cos(-angulo)-x*sin(-angulo);
                 }
             }
-            f->get(j)->setPosition(x+centro->getX(), y+centro->getY(), z+centro->getZ());
+            vertices.at(j)->setPosition(x+centro->getX(), y+centro->getY(), z+centro->getZ());
         }
-    }
 }

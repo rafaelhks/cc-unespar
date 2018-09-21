@@ -15,7 +15,7 @@ class Poligono
         void Rotate(char op);
         int Area();
         int total();
-        Pixel* Centro();
+        void Centro();
         Pixel* getPonto(int pos);
         void Remove(int pos);
         void add(Pixel* p);

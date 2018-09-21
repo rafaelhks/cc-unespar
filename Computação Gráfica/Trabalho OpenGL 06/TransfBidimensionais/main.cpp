@@ -22,12 +22,12 @@ void DrawLines(void){
     if(p->total()==1){ //Desenha um ponto caso só tenha um
         glPointSize(5);
         glBegin(GL_POINTS);
-        glVertex2i(p->getPonto(0)->getX(), p->getPonto(0)->getY());
+        glVertex2d(p->getPonto(0)->getX(), p->getPonto(0)->getY());
     }else{
         glBegin(GL_LINES); //Desenha linhas caso tenha mais de 1 ponto
         for(int i=1; i<p->total(); i++){  //Percorre o vetor de pontos
-            glVertex2i(p->getPonto(i-1)->getX(), p->getPonto(i-1)->getY());
-            glVertex2i(p->getPonto(i)->getX(), p->getPonto(i)->getY());
+            glVertex2d(p->getPonto(i-1)->getX(), p->getPonto(i-1)->getY());
+            glVertex2d(p->getPonto(i)->getX(), p->getPonto(i)->getY());
         }
     }
 
@@ -37,11 +37,12 @@ void DrawLines(void){
 
 
 void showMenu(){
-    cout<<"Utilize O/o para abrir o arquivo."<<endl;
-    cout<<"Utilize s/S para salvar o desenho no arquivo"<<endl;
-    cout<<"Utilize r/R para rotacionar o desenho"<<endl;
-    cout<<"Utilize e/E para escalar o desenho"<<endl;
-    cout<<"Utilize as setas do teclado para transladar o desenho"<<endl;
+    cout<<"Controles: "<<endl;
+    cout<<"O/o para abrir o arquivo."<<endl;
+    cout<<"s/S para salvar o desenho no arquivo"<<endl;
+    cout<<"r/R para rotacionar o desenho"<<endl;
+    cout<<"e/E para escalar o desenho"<<endl;
+    cout<<"Setas do teclado para transladar o desenho"<<endl;
 }
 
 void salvaArquivo(){
@@ -60,7 +61,7 @@ void salvaArquivo(){
 
 void abreArquivo(){
     int nPontos, nPolis;
-    int x, y;
+    double x, y;
     p->clearAll();
 
     ifstream arquivo;
@@ -85,7 +86,7 @@ void abreArquivo(){
     showMenu();
 }
 
-void removeNearest(int x, int y){
+void removeNearest(double x, double y){
     double menorDist = p->getPonto(0)->getEuclideanDist(x, y);
     int menorPos = 0;
     for(int i=1; i<p->total(); i++){

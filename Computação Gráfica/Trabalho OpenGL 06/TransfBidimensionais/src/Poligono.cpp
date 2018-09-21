@@ -4,6 +4,7 @@
 Poligono::Poligono()
 {
     this->nPontos=0;
+    this->centro = new Pixel();
 }
 
 Poligono::~Poligono()
@@ -13,6 +14,7 @@ Poligono::~Poligono()
 
 void Poligono::clearAll(){
     this->pontos.clear();
+    this->nPontos = 0;
 }
 
 Pixel* Poligono::getPonto(int pos){
@@ -33,10 +35,9 @@ void Poligono::Remove(int pos){
     this->nPontos--;
 }
 
-Pixel* Poligono::Centro(){
-    Pixel* centro = new Pixel();
-    double maiorX=this->pontos.at(0)->getX(), menorX = pontos.at(0)->getX();
-    double maiorY=pontos.at(0)->getY(), menorY = pontos.at(0)->getY();
+void Poligono::Centro(){
+    double maiorX = pontos.at(0)->getX(), menorX = pontos.at(0)->getX();
+    double maiorY = pontos.at(0)->getY(), menorY = pontos.at(0)->getY();
 
     for(int i=0; i<(int)pontos.size(); i++){
         if(pontos.at(i)->getX()>maiorX) maiorX = pontos.at(i)->getX();
@@ -48,13 +49,12 @@ Pixel* Poligono::Centro(){
     centro->setY((maiorY+menorY)/2);
 
     cout<<"CM: "<<centro->getX()<<" "<<centro->getY()<<endl;
-    return centro;
 }
 
 void Poligono::Translate(char dir){
     for(int i=0; i<(int)pontos.size(); i++){
-        int x = pontos.at(i)->getX();
-        int y = pontos.at(i)->getY();
+        double x = pontos.at(i)->getX();
+        double y = pontos.at(i)->getY();
         if(dir=='l')    pontos.at(i)->setX(x-7);
         else if(dir=='r')    pontos.at(i)->setX(x+7);
         else if(dir=='u')    pontos.at(i)->setY(y-7);
@@ -63,10 +63,10 @@ void Poligono::Translate(char dir){
 }
 
 void Poligono::Scale(char op){
-    this->centro = Centro(); //Retorna centro de massa
+    Centro(); //Retorna centro de massa
     for(int i=0; i<(int)pontos.size(); i++){
-        int x = pontos.at(i)->getX() - centro->getX();
-        int y = pontos.at(i)->getY() - centro->getY();
+        double x = pontos.at(i)->getX() - centro->getX();
+        double y = pontos.at(i)->getY() - centro->getY();
         if(op=='+'){ //Aumenta Escala
             x*=2;
             y*=2;
@@ -81,11 +81,11 @@ void Poligono::Scale(char op){
 }
 
 void Poligono::Rotate(char op){
-    double angulo = PI/180; //Angulo de inclinação
-    centro = Centro(); //Retorna o centro
+    double angulo = (5*PI)/180; //Angulo de inclinação EM RADIANOS
+    Centro(); //Retorna o centro
     for(int i=0; i<(int)pontos.size(); i++){
-        int x = pontos.at(i)->getX() - centro->getX();
-        int y = pontos.at(i)->getY() - centro->getY();
+        double x = pontos.at(i)->getX() - centro->getX();
+        double y = pontos.at(i)->getY() - centro->getY();
         if(op=='h'){ //Sentido horário
             x = x*cos(angulo)-y*sin(angulo);
             y = x*sin(angulo)+y*cos(angulo);

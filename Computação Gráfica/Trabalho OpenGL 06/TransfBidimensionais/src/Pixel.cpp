@@ -3,7 +3,7 @@
 
 Pixel::Pixel(){}
 
-Pixel::Pixel(int x, int y)
+Pixel::Pixel(double x, double y)
 {
     this->x = x;
     this->y = y;
@@ -14,23 +14,22 @@ Pixel::~Pixel()
     //dtor
 }
 
-int Pixel::getX(){
+double Pixel::getX(){
     return this->x;
 }
 
-int Pixel::getY(){
+double Pixel::getY(){
     return this->y;
 }
 
-void Pixel::setX(int x){
+void Pixel::setX(double x){
     this->x = x;
 }
 
-void Pixel::setY(int y){
+void Pixel::setY(double y){
     this->y = y;
 }
 
-double Pixel::getEuclideanDist(int x1, int y1){
+double Pixel::getEuclideanDist(double x1, double y1){
     return sqrt(pow((x1-this->x),2)+pow((y1-this->y),2));
 }
-

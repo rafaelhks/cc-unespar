@@ -6,15 +6,15 @@ class Pixel
 {
     public:
         Pixel();
-        Pixel(int x, int y);
+        Pixel(double x, double y);
         virtual ~Pixel();
-        int getX();
-        int getY();
-        void setX(int x);
-        void setY(int y);
-        double getEuclideanDist(int x1, int y1);
+        double getX();
+        double getY();
+        void setX(double x);
+        void setY(double y);
+        double getEuclideanDist(double x1, double y1);
     private:
-        int x, y;
+        double x, y;
 };
 
 #endif // PIXEL_H

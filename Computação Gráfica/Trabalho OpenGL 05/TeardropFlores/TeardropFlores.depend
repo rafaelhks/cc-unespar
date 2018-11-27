@@ -382,18 +382,18 @@
 	<vector>
 	"Poligono.h"
 
-1537454099 c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\include\poligono.h
+1538416485 c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\include\poligono.h
 	<vector>
 	<iostream>
 	<math.h>
 	"Pixel.h"
 
-1537218214 c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\include\pixel.h
+1538416485 c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\include\pixel.h
 
-1537218188 source:c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\src\pixel.cpp
+1538416485 source:c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\src\pixel.cpp
 	"Pixel.h"
 	<math.h>
 
-1537454154 source:c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\src\poligono.cpp
+1538416485 source:c:\users\rafael\documents\github\cc-unespar\computação gráfica\trabalho opengl 05\teardropflores\src\poligono.cpp
 	"Poligono.h"
 

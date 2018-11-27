@@ -41,7 +41,7 @@ void abreArquivo(){
     string fname = "OBJfiles/"+nomeArquivo;
 
     ifstream arquivo;
-    arquivo.open("OBJfiles\\dodge_viper.obj"); //Abre arquivo salvo
+    arquivo.open("OBJfiles\\Helicoptero.obj"); //Abre arquivo salvo
 
     if (arquivo.is_open()){ //Checa se arquivo está aberto
         cout<<"Arquivo "<<nomeArquivo<<" aberto com sucesso.\nObtendo dados..."<<endl;

@@ -89,7 +89,7 @@ void Camera::pitch(float angle){
 void Camera::yaw(float angle){
     float cs = cos((angle*PI)/180.0);
     float sn = sin((angle*PI)/180.0);
-    Vertex3D* t = n;
+    Vertex3D* t = new Vertex3D(n->getX(), n->getY(), n->getZ());
     n->setPosition(cs*t->getX() - sn*u->getX(), cs*t->getY() - sn*u->getY(), cs*t->getZ() - sn*u->getX());
     u->setPosition(sn*t->getX() + cs*u->getX(), sn*t->getY() + cs*u->getY(), sn*t->getZ() + cs*u->getX());
     setModelViewMatrix();

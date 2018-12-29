@@ -132,8 +132,8 @@ void Keyboard(unsigned char key, int x, int y){
     else if(key=='p') cam->pitch(-5);
     else if(key=='R') cam->roll(5);
     else if(key=='r') cam->roll(-5);
-    else if(key=='Y') cam->yaw(5);
-    else if(key=='y') cam->yaw(-5);
+    else if(key=='Y') cam->yaw(PI/6);
+    else if(key=='y') cam->yaw(-PI/6);
     else cout<<"Comando invalido!"<<endl;
     DrawLines();
 }

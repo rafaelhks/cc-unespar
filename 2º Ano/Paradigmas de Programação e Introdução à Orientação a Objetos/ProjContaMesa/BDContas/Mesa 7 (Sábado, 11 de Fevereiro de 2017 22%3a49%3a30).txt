@@ -1,0 +1,35 @@
+﻿-------------CUPOM FISCAL------------
+
+Data: 11/02/2017
+
+Hora do fechamento da conta: 22:50:20
+
+CPF do contribuinte: Não informado
+
+
+Mesa: 7
+
+Item:
+		Preço:		Qtde.
+-------------------------------------
+
+Hot Dog Simples	R$ 5,50
+ 	1
+Hot Dog Duplo	R$ 7,00
+		1
+X-Burguer	R$ 7,00
+		1
+X-Salada	R$ 8,50
+		1
+X-Frango	R$ 10,00	1
+
+X-Bacon 	R$ 12,00	1
+
+Tubaína 600ml  	R$ 3,50		1
+Coca Cola 2L  	R$ 8,00		1
+-------------------------------------
+
+Valor Total: R$ 61,50
+
+
+

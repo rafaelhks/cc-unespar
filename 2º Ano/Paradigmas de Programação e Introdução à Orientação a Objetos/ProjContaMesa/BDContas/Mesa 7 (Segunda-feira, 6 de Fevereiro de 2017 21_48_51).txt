@@ -1,0 +1,11 @@
+Data: 06/02/2017
+Hora do fechamento da conta: 21:49:23
+CPF do contribuinte: Nao informado
+
+Mesa: 7
+Itens:
+-------------------------------------
+Hot Dog Duplo  R$ 7,00
+X-Bacon  R$ 12,00
+-------------------------------------
+Valor Total: R$ 19,00

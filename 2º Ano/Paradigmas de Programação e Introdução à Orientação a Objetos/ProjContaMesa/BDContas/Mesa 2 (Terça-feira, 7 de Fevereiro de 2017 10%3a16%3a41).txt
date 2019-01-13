@@ -1,0 +1,12 @@
+-------------CUPOM FISCAL------------
+Data: 07/02/2017
+Hora do fechamento da conta: 10:18:45
+CPF do contribuinte: 10900166975
+
+Mesa: 2
+Itens:
+-------------------------------------
+Batata Frita  R$ 16,50
+Prato Executivo  R$ 15,50
+-------------------------------------
+Valor Total: R$ 32,00

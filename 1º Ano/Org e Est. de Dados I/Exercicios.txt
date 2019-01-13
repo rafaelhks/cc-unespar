@@ -1,0 +1,18 @@
+**PILHA
+1 - Desenvolva um programa, implementando as seguintes operações em pilhas:
+inicializaPilha (): cria uma nova pilha vazia.
+Push(): inclui (empilha) um elemento da pilha
+Pop(): exclui (desempilha) um elemento da pilha
+pilhaVazia(): retorna se a pilha está vazia ou não
+consultaPilha(): retorna o elemento que está no topo da pilha sem retirá-lo da pilha.
+finalizaPilha(): libera a memória alocada pela pilha
+
+2 - Desenvolva uma rotina chamada pop() para desempilhar dois elementos da pilha.
+
+
+**FILA
+1 - Dada uma fila de inteiros, escreva um programa que exclua todos os números negativos sem alterar a posição dos outros elementos da fila.
+
+2 - Dada uma fila de inteiros, escreva um programa que exclua todos os números pares sem alterar a posição dos outros elementos da fila.
+
+3 - Dada uma fila de inteiros, escreva um programa que exclua todos os números impares sem alterar a posição dos outros elementos da fila.

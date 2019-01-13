@@ -1,0 +1,24 @@
+Data: 05/02/2017
+Hora do fechamento da conta: 01:24:45
+CPF do contribuinte: 77777777777
+
+Mesa: 7
+Itens:
+-------------------------------------
+Hot Dog Simples  R$ 5,50
+Hot Dog Duplo  R$ 7,00
+X-Burguer  R$ 7,00
+X-Salada  R$ 8,50
+X-Frango  R$ 10,00
+X-Bacon  R$ 12,00
+Limonada Suíça  R$ 6,00
+Coca Cola 350ml  R$ 3,50
+Guaraná 350ml  R$ 3,50
+Tubaína 600ml  R$ 3,50
+Coca Cola 2L  R$ 8,00
+Cappuccino  R$ 4,00
+Fritas com Queijo e Bacon  R$ 20,00
+File de Frango  R$ 22,00
+Costelinha de Porco  R$ 20,00
+-------------------------------------
+Valor Total: R$ 140,50

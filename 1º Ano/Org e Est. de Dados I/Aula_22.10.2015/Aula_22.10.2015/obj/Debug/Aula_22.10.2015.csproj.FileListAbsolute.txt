@@ -1,0 +1,6 @@
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\bin\Debug\Aula_22.10.2015.exe.config
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\bin\Debug\Aula_22.10.2015.exe
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\bin\Debug\Aula_22.10.2015.pdb
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\obj\Debug\Aula_22.10.2015.csprojResolveAssemblyReference.cache
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\obj\Debug\Aula_22.10.2015.exe
+c:\users\ffdacruz\documents\visual studio 2015\Projects\Aula_22.10.2015\Aula_22.10.2015\obj\Debug\Aula_22.10.2015.pdb

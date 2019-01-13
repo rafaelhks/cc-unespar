@@ -1,4 +1,0 @@
-Após criar o projeto java, botão direito em Bibliotecas>Adicionar JAR/Pasta e selecionar o arquivo jar contido em opencv/build/java
-
-Propriedades do projeto>Executar>Opções de VM:
--Djava.library.path="C:\opencv\build\java\x64"

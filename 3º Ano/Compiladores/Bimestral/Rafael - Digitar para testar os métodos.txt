@@ -1,0 +1,5 @@
+LOOP = apbece
+DO = dabece
+FOR = fa=bece
+REPEAT = arbude
+

@@ -1,0 +1,1 @@
+tracert destino - mostra os saltos atpe atingir o destino

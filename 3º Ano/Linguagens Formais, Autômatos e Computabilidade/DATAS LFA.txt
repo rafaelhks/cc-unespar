@@ -1,0 +1,8 @@
+Para LFA (manhã)
+03/04 - AFND
+10/04 - Transformação de AFND -> AFD
+17/04 - Minimização de AFD
+24/04 - Exercícios de Transformação e Minimização + Dúvidas
+01/05 - FERIADO
+08/05 - PROVA LFA (AFD, AFND, Transf, Minim)
+15/05 - AP (2o Bimestre)

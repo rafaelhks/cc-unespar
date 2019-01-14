@@ -1,0 +1,132 @@
+﻿4º ANO CIENCIAS DA COMPUTAÇÃO - UNESPAR
+DATA 23.03.2018
+
+
+
+TRABALHO DE PESQUISA SOBRE LINGUAGENS DE PROGRAMAÇÃO:
+
+
+
+*TEMAS
+
+
+
+IMPERATIVAS:
+
+Histórico.
+
+Cite algumas.
+
+Aplicabilidade.
+
+Exemplo de linguagem imperativa.
+
+
+
+FUNCIONAIS:
+
+Histórico.
+
+Cite algumas.
+
+Aplicabilidade.
+
+Exemplo de linguagem funcional.
+
+
+
+LÓGICAS:
+
+Histórico.
+
+Cite algumas.
+
+Aplicabilidade.
+
+Exemplo de linguagem lógica.
+
+
+Imperativas
+
+A programação imperativa nasceu como um paradigma de programação que descreve a computação como ações, enunciados ou comandos que mudam o estado de um programa. As primeiras linguagens imperativas eram linguagens de máquina, que tinham instruções simples mas com uma construção complexa. Estas instruções de máquina acabaram sendo substituidas por linguagens de montagem, que, por sua vez, são transliterações de código de máquina. Dentre as primeiras linguagens imperativas, temos:
+
+Fortran (FORmula TRANslation): projetado para aplicações científicas e implementado em 1956 por John Backus na IBM especificamente para a máquina IBM 704. Execução eficiente foi uma grande preocupação. Sua estrutura e comandos têm muito em comum com linguagens de montagem.
+
+COBOL (COmmon Business Oriented Language): projetada por iniciativa do Departamento de Defesa dos EUA em 1959 e implementado em 1960. Caracteriza registros, arquivos e dados fixos decimais. Ele também forneceu uma linguagem natural como sintaxe para que os programas sejam capazes de serem lidos e entendidos por não programadores.
+
+ALGOL 60 (ALGorithmic Oriented Language): foi concebido em 1960 por um comitê internacional para uso em resolução de problemas científicos. Ao contrário FORTRAN, o ALGOL foi concebido de forma independente de uma aplicação, uma escolha que tornou a linguagem elegante. Embora ALGOL 60 não tenha conseguido ganhar a aceitação dos programadores, introduziu estrutura de bloco, instruções de controle estruturados e procedimentos recursivos no paradigma de programação imperativa.
+
+Outras linguagens como: Basic, C, PHP, Java, Cobol, Fortran, Pascal, Python, Lua, também são imperativas e tem aplicabilidade em pesquisas científicas, programação de sistemas computacionais, programação de circuitos integrados, e muitas outras áreas da computação até os dias atuais.
+
+Ex: Um programa simples de "Hello World" em Fortran:
+program hello
+	print *, "Hello World!"
+end program hello
+
+Funcionais:
+Na ciência da computação a programação funcional é um paradigma de programação que trata a computação como uma avaliação de funções matemáticas e que evita estados ou dados mutáveis. Ela enfatiza a aplicação de funções, em contraste da programação imperativa, que enfatiza mudanças no estado do programa.
+
+Uma função, neste sentido, pode ter ou não ter parâmetros e um simples valor de retorno. Os parâmetros são os valores de entrada da função, e o valor de retorno é o resultado da função. A definição de uma função descreve como a função será avaliada em termos de outras funções. 
+
+As linguagens de programação APL e Lisp, e mais recentemente ML, Haskell, OCaml, F# e Elixir, tem se destacado dentre as linguagens funcionais.
+
+As linguagens funcionais tem sido mais usadas academicamente que no desenvolvimento comercial de software. Entretanto, algumas se destacam na industrica, como Erlang (aplicações concorrentes), R (estatística), Mathematica (matemática simbólica), J, K (análise financeira) e XSLT.
+
+Exemplo: Um programa simples de "Hello World" em Haskell:
+olamundo :: IO()
+olamundo = putStrLn "Hello, World!"
+
+Logicas:
+Programação lógica é um paradigma de programação que faz uso da lógica matemática. Esta idéia tem sido investigada no contexto da inteligência artificial desde quando John McCarthy propôs, em 1958: "programas para manipular com sentenças instrumentais comuns apropriadas à linguagem formal (muito provavelmente uma parte do cálculo de predicado)". O programa formará suas conclusões de forma imediata, a partir de uma lista de premissas. As conclusões do programa serão tanto sentenças declarativas quanto imperativas, e quando uma sentença imperativa for deduzida, o programa tomorá uma ação correspondente.
+Algumas linguagens lógicas que se destacam são: 
+
+Prolog: Desenvolvida em 1972 por Alain Colmerauer, foi explicitamente apresentada como baseada na lógica matemática. 
+
+Gödel: desenvolvida em 1992 por John Lloyd e Patricia Hill, é um linguagem de programação declarativa, de propósito geral. É fortemente tipada, e seu sistema de tipos é baseado em muitos ordenados da lógica com polimorfismo paramétrico. Seu nome é uma homenagem ao lógico Kurt Gödel.
+
+Oz: desenvolvida por Gert Smolka e seus estudantes em 1991, teve sua primeia versão, o OZ 1, lançada em 1995. Caracterizava-se por basear-se num modelo de concorrencia, que assume que qualquer expressão pode potencialmente ser executada de modo concorrente.
+
+As linguagens lógicas são amplamente usadas em pesquisas científicas na área da inteligência artificial, bem como no desenvolvimento de IAs e Sistemas Especialistas.
+
+Exemplo: Um programa de arvore genealógica em Prolog.
+
+pais(marina, isaias).
+pais(corsino, isaias).
+pais(vomaria, maria).
+pais(francisco, maria).
+pais(maria, rafael).
+pais(isaias, rafael).
+pais(maria, fernando).
+pais(isaias, fernando).
+
+masculino(isaias).
+masculino(corsino).
+masculino(francisco).
+masculino(rafael).
+masculino(fernando).
+
+feminino(marina).
+feminino(vomaria).
+feminino(maria).
+
+avó(X, Y):-
+	feminino(X),	
+	pais(X, Z),
+	pais(Z, Y).	
+
+avô(X, Y):-
+	masculino(X).
+	pais(X, Z),
+	pais(Z, Y).
+
+pai(X, Y):-
+	masculino(X),
+	pais(X, Y).
+
+mae(X, Y):-
+	feminino(X),
+	pais(X, Y).
+
+filho(X, Y):-
+	pais(Y, X).
+

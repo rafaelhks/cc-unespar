@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1523532242 source:d:\mega\megasync\projetos\projetos codeblocks\arvore\src\arvore.cpp
+	"Arvore.h"
+	<iostream>
+	<vector>
+
+1523502211 d:\mega\megasync\projetos\projetos codeblocks\arvore\include\arvore.h
+	<vector>
+	"Noh.h"
+
+1523539985 d:\mega\megasync\projetos\projetos codeblocks\arvore\include\noh.h
+
+1523483006 source:d:\mega\megasync\projetos\projetos codeblocks\arvore\src\noh.cpp
+	"Noh.h"
+	<iostream>
+
+1523485748 source:d:\mega\megasync\projetos\projetos codeblocks\arvore\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<algorithm>
+	"Noh.h"
+	"Arvore.h"
+

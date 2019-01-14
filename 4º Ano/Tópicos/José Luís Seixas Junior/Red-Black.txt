@@ -1,0 +1,18 @@
+Arvore Red-Black
+
+1ª - A raiz é preta;
+2ª - Todo nó inserido é vermelho;
+3ª - Não pode haver dois vermelhos seguidos;
+4ª - A contagem de pretos da raiz à qualquer folha é igual;
+
+
+*Noh vermelho que aponta pro pai vermelho = rotação
+*Se o noh foi inserido à esquerda, rotação à direita
+*Se o noh foi inserido à direita, rotação à esquerda
+
+*Caso 1: Nó vermelho, pai vermelho, tio vermelho, avô preto
+ Res: tornar avô vermelho, pai e tio preto
+
+*Caso 2: Rotação Esquerda/Direita (Dependendo do lado do nó em relação ao pai)
+
+*Caso 3: Rotacionar o nó para o lado contrário

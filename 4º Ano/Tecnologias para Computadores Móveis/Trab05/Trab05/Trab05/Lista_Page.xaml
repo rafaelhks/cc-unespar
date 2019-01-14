@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trab05.Lista_Page"
+             Title="Lista de Produtos"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <StyleSheet Source="Styles/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+            <ListView x:Name="produtos"
+            ItemTapped="MyListView_ItemTapped"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true" 
+            VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="Black"
+                          Detail="{Binding Description}" DetailColor="DarkGray"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="sair" Text="Sair" BorderRadius="45" Clicked="sair_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\bin\Release\netstandard2.0\Trab05.deps.json
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\bin\Release\netstandard2.0\Trab05.dll
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\bin\Release\netstandard2.0\Trab05.pdb
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.csprojAssemblyReference.cache
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Cadastro.xaml.g.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Lista_Page.xaml.g.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Styles\styles.css.g.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.csproj.CoreCompileInputs.cache
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.AssemblyInfoInputs.cache
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.AssemblyInfo.cs
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.dll
+C:\Users\Rafael\source\repos\Trab05\Trab05\Trab05\obj\Release\netstandard2.0\Trab05.pdb

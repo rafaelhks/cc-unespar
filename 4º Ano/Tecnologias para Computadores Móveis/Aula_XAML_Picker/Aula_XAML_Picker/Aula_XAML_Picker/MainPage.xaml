@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Aula_XAML_Picker"
+             x:Class="Aula_XAML_Picker.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Picker x:Name="Itens" Title="Selecione" SelectedIndexChanged="Itens_SelectedIndexChanged" />
+
+    </StackLayout>
+
+</ContentPage>

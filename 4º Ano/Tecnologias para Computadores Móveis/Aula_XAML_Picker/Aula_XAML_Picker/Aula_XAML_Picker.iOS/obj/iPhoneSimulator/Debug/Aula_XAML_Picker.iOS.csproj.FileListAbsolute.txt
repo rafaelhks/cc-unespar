@@ -1,0 +1,8 @@
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\optimized\
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\Aula_XAML_Picker.iOS.csprojAssemblyReference.cache
+C:\Users\Rafael\Desktop\Aula_XAML_Picker\Aula_XAML_Picker\Aula_XAML_Picker.iOS\obj\iPhoneSimulator\Debug\Aula_XAML_Picker.iOS.csproj.CoreCompileInputs.cache

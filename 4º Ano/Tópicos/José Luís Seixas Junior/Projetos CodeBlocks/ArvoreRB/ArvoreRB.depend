@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1514136974 source:d:\mega\megasync\projetos\projetos codeblocks\arvorerb\main.cpp
+	<iostream>
+
+1523533706 source:d:\mega\megasync\projetos\projetos codeblocks\arvorerb\src\redblack.cpp
+	"RedBlack.h"
+	<iostream>
+	<vector>
+
+1523533299 d:\mega\megasync\projetos\projetos codeblocks\arvorerb\include\redblack.h
+	<vector>
+	"Noh.h"
+
+1523537632 d:\mega\megasync\projetos\projetos codeblocks\arvorerb\include\noh.h
+
+1523537681 source:d:\mega\megasync\projetos\projetos codeblocks\arvorerb\src\noh.cpp
+	"Noh.h"
+	<iostream>
+

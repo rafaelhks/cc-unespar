@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trab05.Cadastro"
+             Title="Cadastro">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="Styles/styles.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <!-- Place new controls here -->
+            <Entry x:Name="username" Placeholder="Nome de Usuário" />
+            <Entry x:Name="email" Placeholder="e-mail@e-mail.com" Keyboard="Email"/>
+            <Entry x:Name="password" IsPassword="True" Placeholder="Senha"/>
+            <Entry x:Name="password2" IsPassword="True" Placeholder="Confirmar Senha"/>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                <Button x:Name="bt_Cadastrar"  BorderRadius="45" Text="Cadastrar" Clicked="bt_Cadastrar_Clicked"/>
+                <Button x:Name="bt_Cancelar"  BorderRadius="45" Text="Cancelar" Clicked="bt_Cancelar_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,7 @@
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\bin\Debug\AulaCSharp.exe.config
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\bin\Debug\AulaCSharp.exe
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\bin\Debug\AulaCSharp.pdb
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\obj\Debug\AulaCSharp.csprojResolveAssemblyReference.cache
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\obj\Debug\AulaCSharp.csproj.CoreCompileInputs.cache
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\obj\Debug\AulaCSharp.exe
+D:\MEGA\MEGAsync\Faculdade\4º ano\Linguagens de Programação\AulaCSharp\AulaCSharp\obj\Debug\AulaCSharp.pdb

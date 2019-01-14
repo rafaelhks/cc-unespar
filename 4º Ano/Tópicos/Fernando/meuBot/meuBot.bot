@@ -1,0 +1,15 @@
+{
+    "name": "meuBot",
+    "description": "",
+    "secretKey": "",
+    "services": [
+        {
+            "id": "aaf19c40-5547-11e8-9b83-e9ec7b836c37",
+            "name": "http://localhost:3978/api/messages",
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages"
+        }
+    ]
+}
